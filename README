@@ -1,64 +1,53 @@
-# Digital Filters in Verilog (FIR & IIR)
+Digital Filters in Verilog (FIR & IIR)
 
-This repository contains multiple implementations of **Finite Impulse Response (FIR)** and **Infinite Impulse Response (IIR)** digital filters in Verilog, along with their respective testbenches.
+This repository contains multiple implementations of Finite Impulse Response (FIR) and Infinite Impulse Response (IIR) digital filters in Verilog, along with their respective testbenches.
 
-The designs explore different architectural approaches used in DSP hardware design, focusing on **efficiency, pipelining, and hardware optimization**.
+The designs explore different architectural approaches used in DSP hardware design, focusing on efficiency, pipelining, and hardware optimization.
 
-## FIR Filter Implementations
+FIR Filter Implementations:
 
-### 1. Direct Form I (Shift-Add FIR)
+1. Direct Form I (Shift-Add FIR)
 
 * Uses shift-add operations instead of multipliers
 * Coefficients implemented using bit shifts
-* Efficient for hardware with limited DSP blocks
+* Efficient for hardware with limited DSP resources
 
-### 2. Transposed FIR Filter
+2. Transposed FIR Filter
 
-* Uses **parallel multipliers** with a generate block
+* Uses parallel multipliers with a generate block
 * Pipeline-friendly architecture
 * Suitable for high-speed FPGA implementations
 
-### 3. 9-Tap FIR Filter
+3. 9-Tap FIR Filter
 
 * Standard convolution-based FIR:
-
-  ```
-  y[n] = Σ h[k]x[n-k]
-  ```
+  y[n] = sum of h[k] * x[n-k]
 * Uses scaled coefficients (fixed-point)
 * Demonstrates symmetric FIR structure
 
 ---
 
-## IIR Filter Implementations
+IIR Filter Implementations:
 
-### 1. Basic First-Order IIR
+1. Basic First-Order IIR
 
-* Difference equation:
-
-  ```
-  y[n] = x[n-1] + 0.75y[n-1]
-  ```
+* y[n] = x[n-1] + 0.75 * y[n-1]
 * Uses shift operations instead of multipliers
 
-### 2. Modified IIR Filter
+2. Modified IIR Filter
 
-* Increased input contribution:
-
-  ```
-  y[n] = 1.75x[n-1] + 0.5625y[n-1]
-  ```
+* y[n] = 1.75 * x[n-1] + 0.5625 * y[n-1]
 * Faster response with reduced feedback weight
 
-### 3. Pipelined IIR Filter
+3. Pipelined IIR Filter
 
 * Multi-stage implementation using intermediate registers
 * Improves timing performance
-* Alters system transfer function due to added delays
+* Alters system behavior due to added delays
 
 ---
 
-## Key Concepts Covered
+Key Concepts Covered:
 
 * Direct Form vs Transposed FIR structures
 * Fixed-point arithmetic in DSP
@@ -69,13 +58,13 @@ The designs explore different architectural approaches used in DSP hardware desi
 
 ---
 
-## Testbenches
+Testbenches:
 
 Each design includes a corresponding testbench that demonstrates:
 
 * Reset behavior
 * Impulse response
 * Step response
-* Real-time output monitoring
+* Output monitoring using $display and $monitor
 
-Simulation outputs are printed using `$display` / `$monitor`, and some designs include waveform dumping (`.vcd`).
+Some designs also include waveform dumping using VCD files.
