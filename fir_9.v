@@ -11,15 +11,15 @@ reg signed [15:0] coeff [0:8];
 
 // Coefficient assignments
 always @(*) begin
-    coeff[0] <= -222;
-    coeff[1] <= -1037;
-    coeff[2] <= 225;
-    coeff[3] <= 3175;
-    coeff[4] <= 4775;
-    coeff[5] <= 3175;
-    coeff[6] <= 225;
-    coeff[7] <= -1037;
-    coeff[8] <= -222;
+    coeff[0] = -222;
+    coeff[1] = -1037;
+    coeff[2] = 225;
+    coeff[3] = 3175;
+    coeff[4] = 4775;
+    coeff[5] = 3175;
+    coeff[6] = 225;
+    coeff[7] = -1037;
+    coeff[8] = -222;
 end
 
 // Delay line
