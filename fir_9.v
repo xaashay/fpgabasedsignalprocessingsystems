@@ -10,7 +10,7 @@ module fir_df1_9tap (
 reg signed [15:0] coeff [0:8];
 
 // Coefficient assignments
-always @(*) begin
+initial begin
     coeff[0] = -222;
     coeff[1] = -1037;
     coeff[2] = 225;
@@ -21,7 +21,6 @@ always @(*) begin
     coeff[7] = -1037;
     coeff[8] = -222;
 end
-
 // Delay line
 reg signed [7:0] tap [0:8];
 
